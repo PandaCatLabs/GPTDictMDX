@@ -6,9 +6,9 @@
 [Ceelog/DictionaryByGPT4](https://github.com/Ceelog/DictionaryByGPT4)
 
 ## 文件下载
-- [格式化后的json文件 (gptwords_formatted.json)](https://github.com/PandaCat/GPT4MDX/blob/main/out/gptwords_formatted.json)
-- [mdx源文件 (gptwords.txt)](https://github.com/PandaCat/GPT4MDX/blob/main/out/gptwords.txt)
-- [mdx文件 (gptwords.mdx)](https://github.com/PandaCat/GPT4MDX/blob/main/out/gptwords.mdx)
+- [格式化后的json文件 (gptwords_formatted.json)](https://github.com/PandaCatLabs/GPTDictMDX/blob/main/out/gptwords_formatted.json)
+- [mdx源文件 (gptwords.txt)](https://github.com/PandaCatLabs/GPTDictMDX/blob/main/out/gptwords.txt)
+- [mdx文件 (gptwords.mdx)](https://github.com/PandaCatLabs/GPTDictMDX/blob/main/out/gptwords.mdx)
 
 ## 生成 mdx
 ```js
