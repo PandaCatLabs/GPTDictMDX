@@ -1,0 +1,108 @@
+Supported data formats:
+1) Extended SugarDict Format:
+One entry per line( <32K )
+Format: Keyword Text (That's seperate keyword and text with space)
+
+Keyword: any combination of upper/lower case character (<255 characters)
+'_', '^' in keyword/text will be replaced with space and return
+
+example：
+break_through /'bri:k_MQru:/ ^v. 突破^n. 突破
+good ^adj.好^adj.贼好^adj.好得不得了
+
+2) KDict decoded tab format
+One Entry per line, use "tab" to seperate key word and text. "\n" in the text will be replaced with return.
+
+Example:
+good	adj.好\nadj.贼好\nadj.好得不得了
+
+3) MDict html format:
+at least 3 lines for per entry:
+a) the first line is keyword
+b) the secod line and following are text, the text here should contain the keyword(for display only), you can use html tags here (but don't include the <html><head><body></body></head></html>). If you need to display phonetic symbols, just use the <font> tag to assign a correct font face. 
+c) end the entry with a line:
+</>
+
+( There should be no other lines between "</>" and the next entry, please reference the example.txt )
+examples:
+Whole
+<font size=5>whole</font>
+<br>
+<font face="Kingsoft Phonetic Plain, Tahoma">(hol,hJl; houl)</font>
+</>
+
+Notes:
+Links to other keywords:
+<a href="entry://key#section">key</a>
+key is the keyword, section is the section name in the html page.
+
+Embedded graphic into libray: 
+<img src="file:///abc.gif"> or <img src="/abc.gif"> 
+Filename is case insensitive. Please put all the data files into a directory(don't put
+the data file with the source file in the same directory). You can use sub-dir as well.
+When building .mdx file. Point the data path to the directory mentioned abov. All the 
+files in this directory will archived into a .mdd file. The .mdd file should be used along
+with the .mdx file in the same directory.
+
+Embedded audio into library:
+use <a href="sound://keyword.spx">keyword</a> style, audio will be played when the link was clicked.
+Only .wav and .spx format are supported.
+
+
+internal redirect(link):
+1) when contents of two keywords are the same, you can use redirect(link) to save space. The format is:
+@@@LINK=keyword
+For example, if color and colour have same contents, you can write the color key in normal style, but for colour keyword, will be written as:
+
+colour
+@@@LINK=color
+</>
+
+The program will display the content of "color" when you look up the keyword "colour"
+
+2) When the duplicate content is data files, You also can use redirect to make a link. Just set the link file as:
+@@@LINK=full path of target file  (Note: should be in UTF-16 encoding)
+For example: abc.spx and 123.spx are the same, then you can set 123.spx as:
+@@@LINK=\abc.spx
+
+
+4) MDict Compact HTML format
+This format are consist of two files, one is the same as  MDict html format, another file is the style format file.
+
+style format file:
+May contain multiple style token defintion, every definition contains 3 lines:
+1) token( only numbers, must >0 and <256 )
+2) the begin string ( could be empty)
+3) the end string ( could be empty )
+if the token was used in text file ( use `token` ( the symbol in the upper left of keybord) in text to indicate ) will enclose the following content( untill the next token)  with "begin string" and "end string. if you need to display "`" in text, use "&#96;" instead. 
+the format file's encoding should be the same as the main source( if you use Unicode for the main source, then you should use unicode for the style format file too)
+
+Example：
+Style token format file:
+1
+<font size=5>
+</font>
+2
+<br>
+
+3
+<font face="Kingsoft Phonetic Plain, Tahoma">
+</font>
+
+
+
+Main source file:
+whole
+`1`whole&#96;s`2`<p>`3`(hol,hJl; houl)
+</>
+
+The content of final text will be:
+<font size=5>whole&#%96;s</font><br><p><font face="Kingsoft Phonetic Plain, Tahoma">(hol,hJl; houl)</font>
+
+
+
+Note:
+If your data contains phonetic symbols, you better use Unicode as encoding ( Please reference http://www.phon.ucl.ac.uk/home/wells/ipa-unicode.htm about IPA) 
+
+How to display phonetics?
+A: MDict support two kinds of phonetics. One using ksphonetic.ttf(21dict use this), anthoer using TrueType fonts that support International phonetic alphabets(IPA), for example the "Lucida Sans Unicode" in Win98/2000/XP (windows\fonts\l_10646.ttf). Please copy these two files into your PDA's \windows\ or \windows\fonts\ ( You may need to soft reset your PocketPC )

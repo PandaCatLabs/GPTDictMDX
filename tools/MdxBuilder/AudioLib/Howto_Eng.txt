@@ -1,0 +1,31 @@
+Ò»¡¢How to setup the gernal audio library (To make TTS)
+1. Build audio library (Use StarDict's WyabdcRealPeopleTTS.zip as exmaple)
+a) Put all the .wav file into a directory. For example c:\WyabdcRealPeopleTTS
+b) Put speexenc.exe, conv_sound.bat and *.dll into directory created in step a: c:\WyabdcRealPeopleTTS
+c) create a directory named "spx" under c:\WyabdcRealPeopleTTS
+d) run conv_sound.bat under c:\WyabdcRealPeopleTTS
+all *.wav file will be converted into .spx format in "spx" directory, you can use speexdec.exe to try it.
+e) Use MdxBuilder to create the sound.mdd
+* Target: c:\sound.mdx
+* Data: c:\WyabdcRealPeopleTTS\spx
+* Encoding: UTF-16
+* Check "Build Data archive only"
+* Start
+
+2. Put "sound.mdd" into your Device
+
+PPC version:
+3a) Assign the "sound.mdd" in the Option->Misc dialog of MDict.
+4a) MDict will open the Sound.mdd when started. If there is match audio entry in the audio library, 
+the speaker icon in MDict will be enabled.
+
+Smartphone version:
+3b) Assign the full path of "sound.mdd" in the Option dialog of MDict.
+4b) MDict will open the Sound.mdd when started. If there is match audio entry in the audio library, 
+the audio will be played automatically(You may turn off this in Option dialog). Or you may use '0' key
+to listen to it again.
+
+Known limitations:
+1. The function of conv_sound.bat is not completed. Because when looking up audio entry, 
+MDict will strip characters other then alphabic or digital¡£But conv_sound.bat can't strip filenames for you.
+2. speexenc can't be runned under Vista.

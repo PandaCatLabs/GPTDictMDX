@@ -1,0 +1,18 @@
+一、全局音频库的指定(实现真人发音)
+1. 制作真人发音库 (以StarDict的WyabdcRealPeopleTTS.zip为例子)
+a) 将真人发音的文件解压到一个目录下.(例如c:\WyabdcRealPeopleTTS )
+b) 将speexenc.exe, *.dll 和 conv_sound.bat 放在c:\WyabdcRealPeopleTTS 目录下
+c) 在c:\WyabdcRealPeopleTTS下建立一个"spx"目录
+d) 在c:\WyabdcRealPeopleTTS目录下运行conv_sound.bat
+转换后生成的文件会放在spx目录下，可以使用speexdec.exe来播放试听
+e) 使用MdxBuilder制作sound.mdd
+* Target 设置为c:\sound.mdx
+* Data 设置为 c:\WyabdcRealPeopleTTS\spx
+* Encoding: UTF-16
+* 选上Build Data archive only
+* 执行转换
+2. 将sound.mdd 放在PPC
+3. 在MDict的Option->Misc设置Audio Lib为Sound.mdd
+4. MDict启动时会自动打开Sound.mdd, 并在显示解释内容时自动查找音频库, 如果发现有发音时，喇叭按钮会被激活。
+5. 目前的conv_sound.bat还不够完善，原因是在查找对应的发音内容时，程序会将关键字全部变成小写并只保留数字和字母，空格，减号等等都会被去掉。但conv_sound没有对文件名进行处理，所以有部分发音文件实际上会被浪费掉。
+6. speexenc只能用于WinXP, Vista下会出错。

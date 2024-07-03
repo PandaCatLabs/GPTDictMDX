@@ -1,0 +1,16 @@
+{
+  "name": "gpt_dict",
+  "version": "1.0.0",
+  "description": ".mdx Dictionary base on DictionaryByGPT4",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lewis Deng",
+  "license": "ISC",
+  "dependencies": {
+    "html-to-text": "^9.0.5",
+    "marked": "^13.0.1"
+  }
+}

@@ -1,0 +1,12 @@
+1
+<font color="#FF0000" size=5>
+</font><br>
+2
+<font color="#0000FF">
+</font><br>
+3
+<font color="#FB8C42" face="Kingsoft Phonetic Plain, Tahoma">
+</font><br>
+4
+<font color="#FB8C42">
+</font><br>

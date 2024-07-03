@@ -1,0 +1,42 @@
+index
+CSS: <a href="entry://css">demo</a><br>
+Sound: <br>
+<a href="entry://sound">demo using link</a><br>
+<a href="entry://bgsound">BGSound demo</a><br>
+Graphic: <a href="entry://graphic">demo</a><br>
+
+In page link: <a href="entry://#section name">link to view source</a>
+<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br><br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br>0<br>
+some dummy lines<p>
+<a name="section name">View Source:</a>
+<a href="source://index">view</a>
+</>
+css
+<head>
+<link rel="stylesheet" type="text/css" href="inline0.css" />
+<link rel="stylesheet" type="text/css" href="inline1.css" />
+</head>
+<body>
+<p id="p0">This line should appear green.</p>
+<p id="p1">This line should appear red</p>
+
+<a href="source://#">Source code</a>
+</body>
+</>
+sound
+Sound test, please click this: <a href="sound://test.spx"><img src="http:///playicon.jpg"></img></a>
+</>
+bgsound
+You should be able to use the "speaker" button in the up-right to play audio now
+<BGSound src="/test.spx">
+</>
+graphic
+This entry can show a graphic as this: <img src="/mdict.gif">mdict.gif</img>
+a very large photo: <img src="/1.jpg">1.jpg</img>
+</>
+internal redirect to "graphic"
+@@@LINK=graphic
+</>
+cross page link with section
+<a href="entry://index#section name">jump</a>
+</>

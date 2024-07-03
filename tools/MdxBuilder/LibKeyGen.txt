@@ -1,0 +1,20 @@
+如何使用词库注册机制:
+1. 制作词库时，在Mdxbuilder的"Encryption Key"中输入一个密码(DictKey)
+2. 将做好的词库发给最终用户
+3. 最终用户将注册邮件地址发给词库作者 (在MDict程序中的使用者信息对话框中可以设置注册邮件地址)
+4. 运行"MdxKeyGen DictKey OwnerEmail"生成注册码(Reg Code)
+5. 将注册码保存为文件，且文件名与词库名字除了扩展名为.key外，其他一样。例如如果词库为test.mdx, 则注册文件名为test.key
+6. 将注册文件发给最终用户
+7. 最终用户将注册文件和词库文件放在同一目录下。
+8. Done
+
+How to use the dictionary registration function:
+
+1. Specify a string (DictKey) in the "Encryption Key" section in MdxBuilder when building the library.
+2. Distribute the encrypted library to end user.
+3. The end user send the owner email to the di (End user may set their owner email in the "Owner Info" dialog in MDict program)
+4. Use "MdxKeyGen DictKey OwnerEmail" to get the Reg code for the dictionary
+5. Save the Reg Code in a file with the same file name as the dictionary except for extension ".key". For example, if your library is test.mdx, then name the key file as test.key
+6. Send the key file to end user
+7. The end user should put the key file with the dictionary file in the same directory.
+8. Done
